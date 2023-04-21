@@ -1,0 +1,64 @@
+Teste br/com/sincredi/rest/tests/SimulacoesTests.java public void testPessoaComRestrição
+Conforme a documentacao o teste "Pessoa com restrição "swagger
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+conforme o aquivo br/com/sicredi/simulacao/controller/RestricaoController.java
+
+na consulta do CPF deveria constar "Pessoa com restrição"
+@ApiResponse(code = 200, message = "Pessoa com restrição", response = MessageDTO.class)
+o mesmo valor consta no swagger como StatusCode 200
+{
+  "mensagem": "O CPF 999999999 possui restrição"
+}
+
+Mas a mensgem apresentada é:
+{
+  "mensagem": "O CPF XXXXXXXXXXXXX tem problema"
+}
+-------------------------
+Erro de portugues em uma instâncias da enumeração do arquivo br/com/sicredi/simulacao/entity/TipoRestricao.java
+O correto seria BLOQUEIO_JUDICIAL
+
+
+-------------------------
+Em Insercao de uma nova simulação duplicada
+conforme o arquivo br/com/sicredi/simulacao/controller/SimulacaoController.java na linha 61
+ @ApiResponse(code = 409, message = "CPF já existente")
+
+E a documentacao:
+conforme a documentacao : Uma simulação para um mesmo CPF retorna um HTTP Status 409 com a mensagem "CPF já existente"
+
+Mas o a memsaem apresentada pelo sistema é: "mensagem": "CPF duplicado" e o status code esta como 400 e nao 409 como deveria
+
+
+encontrado um erro em Atualiza uma simulação existente através do CPF nao existe uma validacao no do cpf cpf ja cadastrado ou para com restricao
+Nesse formato que esta hoje o code 404 nao é encontrado
+
+
+
+
+Descreva o contexto: explique em que situação o erro ocorreu, como ele foi descoberto e qual foi o comportamento inesperado observado.
+
+Identifique claramente o erro: informe qual foi a mensagem de erro exibida e as informações relevantes, como o status code e o stack trace.
+
+Forneça detalhes adicionais: se você souber de alguma informação relevante que possa ajudar a entender o erro, como o ambiente de execução, versões de software e hardware, inclua esses detalhes.
+
+Seja objetivo e claro: evite usar jargões técnicos desnecessários e procure ser claro e conciso ao descrever o problema encontrado.
